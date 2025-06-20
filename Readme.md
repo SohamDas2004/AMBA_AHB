@@ -47,5 +47,17 @@ Even during wait states, master can change Transfer type from idle to non-sequen
 
 Note: Using an interconnet we are establishing connection between multiple masters and slaves
 <br>
-According to Haddr[31:0], Hsel will be selected i.e. a particular slave will be slected. For example: if slave 1 is selected then that slave will respond with hrdata, hresp, hreadyout
+According to Haddr[31:0], Hsel will be selected i.e. a particular slave will be slected. <br> For example: if slave 1 is selected then that slave will respond with hrdata, hresp, hreadyout
 _______________________________________________________________________________________
+
+File Architecture:<br>
+
+Single Master and Multple slaves are choosen here.
+
+AHB- Top module<br>
+|<br>
+--> AHB Master<br>
+|<br>
+--> AHB Slave<br>
+
+___________________________________________________________________________________________
