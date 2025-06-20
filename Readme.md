@@ -1,28 +1,33 @@
 AHB Transfer:
 (types)
-Address phase: add is passed    and
+<br>
+Address phase: add is passed    and <br>
 Data phase: data is passed
-NOTE: BOth take 1 clock cycle to get completed
+<br>
+NOTE: Both take 1 clock cycle to get completed
 
 Hwrite=1 M->S Write operation/transfer (write into hwdata[31:0])
-Hwrite=0 S->M Read operation/transfer  (read into hrdata[31:0])
+   Hwrite=0 S->M Read operation/transfer  (read into hrdata[31:0])
 
 Hready=1: S is ready to read/write the data. or slave is willing to transfer the data
-Hready=0: S is not ready to do anything
+   Hready=0: S is not ready to do anything
 ____________________________________________________________________________________
 
 Transfer type: 
 Htrans[1:0] 
-if 00: idle transfer
-   01: busy transfer 
-   10: non sequential transfer
-   11: sequential transfer 
+if 
+00: idle transfer<br>
+01: busy transfer
+10: non sequential transfer
+11: sequential transfer 
 
 Burst Transfers in AHB:
 refers to the sequence of data transfers betwee master and slave.
+<br>
 (types) 
 Incremental Burst: address keeps on incrementing
-eg: A0-> A1-> A2 -> A3
+eg: A0-> A1-> A2 -> A3 
+<br>
 Wrapping Burst: address increments but it will wrap around to initial address after reaching certain boundary. Utilizatio of memory is done nicely.
 eg: A0-> A1 -> A2 -> A0
 
