@@ -45,19 +45,44 @@ Transfer Type during wait states: When the slave has requested wait states (i.e.
 Exception:
 Even during wait states, master can change Transfer type from idle to non-sequential.
 
-Note: Using an interconnet we are establishing connection between multiple masters and slaves
-<br>
-According to Haddr[31:0], Hsel will be selected i.e. a particular slave will be slected. <br> For example: if slave 1 is selected then that slave will respond with hrdata, hresp, hreadyout
+Notes:<br>
+Using an interconnet we are establishing connection between multiple masters and slaves
+
+According to Haddr[31:0], Hsel will be selected i.e. a particular slave will be slected. For example: if slave 1 is selected then that slave will respond with hrdata, hresp, hreadyout
+
+Address is given to the multiplexer as a select line to the mux and a slave is selected. 
 _______________________________________________________________________________________
+
+Slave Transfer Respone:
+
+Hresp=0 --> okay signal | Hresp=1 --> error response
+
+If Hresp=0 and Hreadyout=1 --> transfer has been completed successfully.<br>
+If Hresp=0 and Hreadyout=0 --> additinal cycles are required for the slave to complete request. Transfer is pending. <br>
+If Hresp=1 and Hreadyout=0 --> then error has occured and slave is not ready<br>
+If Hresp=1 and Hreadyout=1 --> error response in second clock cycle 
+
+________________________________________________________________________________________
 
 File Architecture:<br>
 
-Single Master and Multple slaves are choosen here.
+Single Master and Multple slaves are chosen here.
 
 AHB- Top module<br>
 |<br>
 --> AHB Master<br>
 |<br>
 --> AHB Slave<br>
+|<br>
+--> Decoder<br>
+|<br>
+--> Multiplexer<br>
 
-___________________________________________________________________________________________
+Separate testbenches are given for all the modules mentioned above.  
+
+_______________________________________________________________________________________
+
+
+
+
+
