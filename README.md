@@ -1,1 +1,13 @@
 # AMBA_AHB
+
+IN PROGRESS. <br>
+[UPDATES!] <br>
+AHB MASTER IS COMPLETED <br>
+
+[TO BE DONE]
+AHB SLAVE <br>
+DECODER  <br>
+MUX  <br>
+TESTBENCH  <br>
+
+#
